@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker';
 import { addProduct, products } from './products/product.service';
 
-for (let index = 0; index < 50; index++) {
+for (let index = 0; index < 5; index++) {
   addProduct({
-    id: faker.datatype.uuid(),
+    //id: faker.datatype.uuid(),
     description: faker.commerce.productDescription(),
     image: faker.image.imageUrl(),
     color: faker.color.human(),
@@ -11,16 +11,17 @@ for (let index = 0; index < 50; index++) {
     isNew: faker.datatype.boolean(),
     tags: faker.helpers.arrayElements(),
     title: faker.commerce.productName(),
-    createdAt: faker.date.recent(),
-    updatedAt: faker.date.recent(),
+    //createdAt: faker.date.recent(),
+    //updatedAt: faker.date.recent(),
     stock: faker.datatype.number({ min: 10, max: 100 }),
     size: faker.helpers.arrayElement(['S', 'M', 'L', 'XL']),
-    category: {
-      id: faker.datatype.uuid(),
-      name: faker.commerce.department(),
-      createdAt: faker.date.recent(),
-      updatedAt: faker.date.recent(),
-    },
+    categoryId: faker.datatype.uuid(),
+    // category: {
+    //   id: faker.datatype.uuid(),
+    //   name: faker.commerce.department(),
+    //   createdAt: faker.date.recent(),
+    //   updatedAt: faker.date.recent(),
+    // },
   });
 }
 
