@@ -1,7 +1,7 @@
 //crea un conjunto de opciones predefinidas, y al
 //momento de tipar con ellas, solo puedes elegir entre esas opciones.
 enum ROLES {
-  ADMIN = 'admin',
+  ADMIN = "admin",
   SELLER = "seller",
   CUSTOMER = "customer",
 }
@@ -16,3 +16,4 @@ const luisUser: User = {
   role: ROLES.ADMIN
 }
 
+export { ROLES, User}
