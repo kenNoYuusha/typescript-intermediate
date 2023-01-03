@@ -15,4 +15,5 @@ addProduct({
   }
 });
 
-console.log(products);
+console.log(products)
+
