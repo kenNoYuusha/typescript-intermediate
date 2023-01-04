@@ -6,7 +6,7 @@ import { Product } from "./product.model"
 // con esto evitamos crear una nueva interfaz para insertar codigo u alguna otra operacion
 // y evitamos la redundancia de codigo
 export interface CreateProductDto extends Omit<Product, "id" | "createdAt" | "updatedAt" | "category"> {
-  categoryId: string,
+  categoryId: string;
 }
 
 // export interface CreateProductDto extends Pick<Product, "description" | "image" | "color" | "price"> {
@@ -25,4 +25,12 @@ export interface updateProductDto extends Partial<CreateProductDto> {}
 
 //Podemos combinar utility types de la siguiente manera
 //Readonly transforma todas nuestras propiedades a solo lectura.
-export interface FindProductDto extends Readonly<Partial<Product>>{}
+export interface FindProductDto extends Readonly<Partial<Omit<Product, "tags">>>{
+  readonly tags: ReadonlyArray<string>;
+}
+
+//Omit<Product, "tags">  --> omite la propiedad tags de Product
+//Partial  --> establece el resto de parametros como opcionales
+//Readonly --> establece las propiedades como solo lectura
+//readonly tags: ReadonlyArray<string>  --> volvemos a definir la propiedad tags pero esta vez
+//como solo lectura y readonlyArray esto nos permite no sobreescribir el valor y tampoco mutar el array.
