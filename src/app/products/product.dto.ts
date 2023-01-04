@@ -22,3 +22,7 @@ export interface updateProductDto extends Partial<CreateProductDto> {}
 //export interface updateProductDto extends Required<CreateProductDto> {}
 
 //------------------------------------------------------------------------------------
+
+//Podemos combinar utility types de la siguiente manera
+//Readonly transforma todas nuestras propiedades a solo lectura.
+export interface FindProductDto extends Readonly<Partial<Product>>{}
