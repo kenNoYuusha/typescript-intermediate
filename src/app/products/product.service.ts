@@ -21,8 +21,8 @@ export const addProduct = (data:CreateProductDto): Product => {
   products.push(newProduct);
   return newProduct
 }
-
-export const updateProduct = (id:string, changes: updateProductDto): Product => {
+//puedes acceder al tipo de una propiedad de una interfaz a travez de su indice
+export const updateProduct = (id:Product["id"], changes: updateProductDto): Product => {
   const index = products.findIndex(product => product.id === id)
   const prevData = products[index];
   products[index] = {
